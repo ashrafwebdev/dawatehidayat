@@ -1,0 +1,31 @@
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #FAF9F6;
+            color: #2F2F2F;
+        }
+        .navbar {
+            background-color: #006A4E;
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .hero {
+            background-color: #F4EBD0;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .btn-gold {
+            background-color: #D4AF37;
+            color: white;
+        }
+        .btn-gold:hover {
+            background-color: #b9982d;
+        }
+        .footer {
+            background-color: #2F2F2F;
+            color: #ccc;
+            padding: 20px 0;
+            text-align: center;
+        }
+    
