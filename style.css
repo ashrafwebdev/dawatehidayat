@@ -1,31 +1,423 @@
+/* =======================================================
+   Dawat-e-Hidayat — responsive stylesheet
+   Mobile-first. Palette kept close to the site's original
+   brand: burnt orange accent, warm grey text, cream cards.
+   ======================================================= */
 
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #FAF9F6;
-            color: #2F2F2F;
-        }
-        .navbar {
-            background-color: #006A4E;
-        }
-        .navbar-brand, .nav-link {
-            color: white !important;
-        }
-        .hero {
-            background-color: #F4EBD0;
-            padding: 60px 0;
-            text-align: center;
-        }
-        .btn-gold {
-            background-color: #D4AF37;
-            color: white;
-        }
-        .btn-gold:hover {
-            background-color: #b9982d;
-        }
-        .footer {
-            background-color: #2F2F2F;
-            color: #ccc;
-            padding: 20px 0;
-            text-align: center;
-        }
-    
+:root {
+	--accent: #EC981F;
+	--accent-dark: #806B4D;
+	--accent-gold: #FFA600;
+	--text: #4a4a4a;
+	--heading: #555;
+	--border: #eee;
+	--panel: #FAFAFA;
+	--max-width: 960px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	font: 15px/1.6 Verdana, 'Trebuchet MS', Arial, sans-serif;
+	color: var(--text);
+	background: #fff;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	border: 0;
+	vertical-align: middle;
+}
+
+a {
+	color: var(--accent);
+}
+a:hover {
+	color: var(--accent-dark);
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px; height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+
+.skip-link {
+	position: absolute;
+	left: -999px;
+	top: 0;
+	background: #fff;
+	color: var(--accent-dark);
+	padding: 8px 14px;
+	z-index: 100;
+}
+.skip-link:focus {
+	left: 8px;
+	top: 8px;
+}
+
+h1, h2, h3 {
+	font-family: 'Trebuchet MS', Tahoma, sans-serif;
+	font-weight: bold;
+	color: var(--heading);
+}
+
+#main h1, #rightbar h1 {
+	font-size: 1.3em;
+	text-transform: uppercase;
+	padding: 6px 0;
+	margin: 18px 15px 10px;
+	border-bottom: 1px solid var(--border);
+}
+#main h1:first-child {
+	margin-top: 15px;
+}
+
+#main h2 {
+	font-size: 1.1em;
+	text-transform: uppercase;
+	padding: 6px 0;
+	margin: 22px 15px 10px;
+	border-bottom: 1px solid var(--border);
+}
+
+#main p {
+	margin: 10px 15px;
+}
+
+.attribution {
+	display: block;
+	font-size: 0.75em;
+	text-transform: none;
+	font-weight: normal;
+	margin-top: 3px;
+}
+
+/* ---------------- Header ---------------- */
+
+#header {
+	background: linear-gradient(135deg, #fff 60%, #fdf3e2 100%);
+	border-bottom: 3px solid var(--accent-gold);
+	padding: 16px 15px 10px;
+	text-align: center;
+}
+
+.header-inner {
+	max-width: var(--max-width);
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+}
+
+.logo-link {
+	display: inline-block;
+	line-height: 0;
+}
+
+.logo-img {
+	width: 260px;
+	max-width: 60vw;
+}
+
+.bismillah-img {
+	width: 140px;
+	max-width: 40vw;
+}
+
+#slogan {
+	max-width: var(--max-width);
+	margin: 10px auto 2px;
+	font: bold 1em 'Trebuchet MS', Arial, sans-serif;
+	color: var(--accent-dark);
+}
+
+#byline {
+	max-width: var(--max-width);
+	margin: 4px auto 0;
+	font-size: 0.85em;
+	color: #888;
+}
+
+/* ---------------- Menu ---------------- */
+
+#menu {
+	max-width: var(--max-width);
+	margin: 0 auto;
+	background: #fff;
+}
+
+.menu-bar {
+	display: none;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 15px;
+	border-bottom: 1px solid var(--border);
+}
+
+.menu-title {
+	font: bold 1em 'Trebuchet MS', Tahoma, sans-serif;
+	color: var(--heading);
+	text-transform: uppercase;
+}
+
+.menu-toggle {
+	background: none;
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	padding: 8px 10px;
+	cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+	display: block;
+	width: 22px;
+	height: 2px;
+	background: var(--heading);
+	position: relative;
+}
+.hamburger::before,
+.hamburger::after {
+	content: "";
+	position: absolute;
+	left: 0;
+}
+.hamburger::before { top: -6px; }
+.hamburger::after { top: 6px; }
+
+#menu-list {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	border-bottom: 4px solid #808080;
+	font: bold 1.05em 'Trebuchet MS', Tahoma, Arial, sans-serif;
+}
+
+#menu-list li {
+	flex: 1 1 auto;
+}
+
+#menu-list a {
+	display: block;
+	text-align: center;
+	color: #808080;
+	text-decoration: none;
+	padding: 10px 12px;
+	border-bottom: 4px solid transparent;
+	margin-bottom: -4px;
+}
+
+#menu-list a:hover {
+	color: #000;
+	background-color: #F3F3F3;
+	border-bottom-color: var(--accent-gold);
+}
+
+#menu-list li.current a {
+	color: #333;
+	background-color: #F3F3F3;
+	border-bottom-color: var(--accent-gold);
+}
+
+/* ---------------- Content layout ---------------- */
+
+#content-wrap {
+	max-width: var(--max-width);
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+#main {
+	padding-bottom: 10px;
+}
+
+#rightbar {
+	padding: 10px 15px 20px;
+	border-top: 1px solid var(--border);
+}
+
+.honorific {
+	width: 15px;
+	height: 15px;
+	display: inline;
+}
+
+.post-footer {
+	background-color: var(--panel);
+	padding: 10px;
+	margin: 12px 15px;
+	font-size: 0.9em;
+	border: 1px solid var(--border);
+}
+.align-right { text-align: right; }
+
+/* PDF language grid — replaces the old fixed <table> */
+.pdf-grid {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+	margin: 12px 15px;
+}
+
+.pdf-item a {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px;
+	border: 1px solid var(--border);
+	border-radius: 6px;
+	text-decoration: none;
+	color: var(--heading);
+	font-weight: bold;
+	background: var(--panel);
+}
+.pdf-item a:hover {
+	border-color: var(--accent);
+	background: #fff6ea;
+}
+.pdf-item img {
+	width: 22px;
+	height: auto;
+	flex-shrink: 0;
+}
+
+.mixlr-embed {
+	margin: 12px 15px;
+}
+
+.small-note {
+	margin: 4px 15px 20px;
+	font-size: 0.8em;
+}
+.small-note a {
+	color: #333;
+	text-decoration: none;
+}
+
+/* YouTube card */
+.youtube-box {
+	margin-top: 16px;
+	padding: 14px;
+	border: 1px solid var(--border);
+	border-radius: 6px;
+	background: var(--panel);
+}
+.youtube-box h3 {
+	font-size: 0.9em;
+	margin: 0 0 10px;
+	border-bottom: 1px solid var(--border);
+	padding-bottom: 6px;
+}
+.youtube-icon-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.9em;
+	font-weight: 600;
+	color: #c00;
+	text-decoration: none;
+}
+.yt-icon {
+	width: 20px;
+	height: 20px;
+	fill: #c00;
+	flex-shrink: 0;
+}
+.youtube-icon-link:hover {
+	text-decoration: underline;
+}
+.youtube-icon-link:hover .yt-icon {
+	fill: #a00000;
+}
+
+/* ---------------- Footer ---------------- */
+
+#footer {
+	text-align: center;
+	padding: 16px 15px;
+	background: var(--panel);
+	border-top: 1px solid var(--border);
+	font-size: 0.85em;
+}
+
+/* =======================================================
+   Breakpoints
+   ======================================================= */
+
+/* Small phones: tighten header type sizes a touch */
+@media (max-width: 400px) {
+	#slogan { font-size: 0.9em; }
+	.pdf-grid { grid-template-columns: 1fr; }
+}
+
+/* Phones / small tablets: collapse the nav into a toggleable menu */
+@media (max-width: 640px) {
+	.header-inner { gap: 10px; }
+	.menu-bar { display: flex; }
+
+	#menu-list {
+		display: none;
+		flex-direction: column;
+		border-bottom: none;
+	}
+	#menu-list.open {
+		display: flex;
+	}
+	#menu-list li { flex: 1 1 auto; }
+	#menu-list a {
+		text-align: left;
+		border-bottom: 1px solid var(--border);
+		border-left: 4px solid transparent;
+		margin-bottom: 0;
+	}
+	#menu-list a:hover,
+	#menu-list li.current a {
+		border-bottom: 1px solid var(--border);
+		border-left-color: var(--accent-gold);
+	}
+}
+
+/* Tablets and up: two-column layout for article + sidebar */
+@media (min-width: 800px) {
+	#content-wrap {
+		flex-direction: row;
+		align-items: flex-start;
+	}
+	#main {
+		flex: 1 1 68%;
+		border-right: 1px solid var(--border);
+		padding-bottom: 30px;
+	}
+	#rightbar {
+		flex: 1 1 32%;
+		border-top: 0;
+		border-left: 1px solid var(--border);
+	}
+	.pdf-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+/* Wide screens: cap the logo growth */
+@media (min-width: 800px) {
+	.logo-img { width: 320px; max-width: 45%; }
+	.bismillah-img { width: 170px; max-width: 28%; }
+}
