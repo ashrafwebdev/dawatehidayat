@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dawat-e-Hidayat | Today's Salath Times</title>
+<meta name="description" content="Today's Salath (prayer) times for Vellore, Vaniyambadi, Ambur, Melvisharam, Chennai, and Salem." />
+<link rel="stylesheet" href="style.css" />
+<script type="text/javascript" src="js/PrayTimes.js"></script>
+<script type="text/javascript" src="js/dateFormat.js"></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header id="header">
+	<div class="header-inner">
+		<a href="index.html" class="logo-link" aria-label="Dawat-e-Hidayat home">
+			<img src="images/deh_title.png" alt="Dawat-e-Hidayat" class="logo-img" width="646" height="131" />
+		</a>
+		<img src="images/bsmllh.gif" alt="Bismillah ir-Rahman ir-Rahim" class="bismillah-img" width="220" height="59" />
+	</div>
+	<p id="slogan">An invitation towards hidayah (guidance)&hellip;</p>
+	<p id="byline">Official website of Dawat-e-Hidayat, under the guidance of <strong>Hazrat Moulana Mufti Shakeel Ahmed Sahib (DB)</strong></p>
+</header>
+
+<nav id="menu" aria-label="Primary">
+	<div class="menu-bar">
+		<span class="menu-title">Menu</span>
+		<button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-list">
+			<span class="sr-only">Toggle menu</span>
+			<span class="hamburger"></span>
+		</button>
+	</div>
+	<ul id="menu-list">
+		<li><a href="index.html">Home</a></li>
+		<li><a href="audio.html">Audio</a></li>
+		<li><a href="writings.html">Writings</a></li>
+		<li><a href="silsilah.html">Silsilah</a></li>
+		<li class="current"><a href="downloads.html" aria-current="page">Downloads</a></li>
+		<li><a href="contacts.html">Contact Us</a></li>
+	</ul>
+</nav>
+
+<div id="content-wrap">
+	<main id="main">
+
+		<h1>Salath Times (Auqat-us-Salah) &mdash; Today</h1>
+		<p class="post-footer" id="today-date">&nbsp;</p>
+
+		<div id="city-grid" class="city-grid"></div>
+
+		<p class="post-footer">Calculation method: Karachi, with Hanafi Asr. Times are computed in your browser from each city's coordinates.</p>
+
+	</main>
+
+	<aside id="rightbar">
+
+		<h1>News &amp; Events</h1>
+		<p class="post-footer">
+			<strong>Monthly Majlis:</strong><br />
+			Last Monday of every month at <strong>DAR-E-IMAAN, Opposite Deen Leathers, Quayide Millath Nagar, Kathiyavadi, Melvisharam, Vellore District, Tamil Nadu</strong>, from Asar salah.
+		</p>
+
+		<div class="youtube-box card">
+			<h3>Our YouTube Channel</h3>
+			<a class="youtube-link youtube-icon-link" href="https://www.youtube.com/@dawatehidayat" target="_blank" rel="noopener" aria-label="Visit Dawat-e-Hidayat YouTube Channel">
+				<svg class="yt-icon" viewBox="0 0 24 24" aria-hidden="true">
+					<path d="M23.498 6.186a2.999 2.999 0 0 0-2.112-2.122C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.386.564A2.999 2.999 0 0 0 .502 6.186 31.02 31.02 0 0 0 0 12a31.02 31.02 0 0 0 .502 5.814 2.999 2.999 0 0 0 2.112 2.122C4.5 20.5 12 20.5 12 20.5s7.5 0 9.386-.564a2.999 2.999 0 0 0 2.112-2.122A31.02 31.02 0 0 0 24 12a31.02 31.02 0 0 0-.502-5.814ZM9.75 15.5v-7l6 3.5-6 3.5Z" />
+				</svg>
+				<span>Visit Channel</span>
+			</a>
+		</div>
+
+	</aside>
+</div>
+
+<footer id="footer">
+	<p>&copy; 2026 <strong>Dawat-e-Hidayat.org</strong></p>
+</footer>
+
+<script>
+	var toggle = document.getElementById('menu-toggle');
+	var menuList = document.getElementById('menu-list');
+	toggle.addEventListener('click', function () {
+		var isOpen = menuList.classList.toggle('open');
+		toggle.setAttribute('aria-expanded', isOpen);
+	});
+
+	var CITIES = [
+		{ name: 'Vellore, TN', lat: 12.916517, lng: 79.132499 },
+		{ name: 'Vaniyambadi, TN', lat: 12.695032, lng: 78.621885 },
+		{ name: 'Ambur, TN', lat: 12.790361, lng: 78.716608 },
+		{ name: 'Melvisharam, TN', lat: 12.915116, lng: 79.281759 },
+		{ name: 'Chennai, TN', lat: 13.052414, lng: 80.250825 },
+		{ name: 'Salem, TN', lat: 11.664325, lng: 78.146014 }
+	];
+	var PRAYERS = ['Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+
+	prayTimes.setMethod('Karachi');
+	prayTimes.adjust({ asr: 'Hanafi' });
+
+	var today = new Date();
+	document.getElementById('today-date').textContent = dateFormat(today, 'dddd, mmm d, yyyy');
+
+	var grid = document.getElementById('city-grid');
+	CITIES.forEach(function (city) {
+		var times = prayTimes.getTimes(today, [city.lat, city.lng], 5.5, 0, '12h');
+		var card = document.createElement('div');
+		card.className = 'city-card';
+		var rowsHtml = PRAYERS.map(function (p) {
+			return '<tr><td>' + p + '</td><td>' + times[p.toLowerCase()] + '</td></tr>';
+		}).join('');
+		card.innerHTML = '<h3>' + city.name + '</h3><table class="city-table"><tbody>' + rowsHtml + '</tbody></table>';
+		grid.appendChild(card);
+	});
+</script>
+
+</body>
+</html>

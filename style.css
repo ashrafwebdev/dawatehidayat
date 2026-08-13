@@ -448,6 +448,22 @@ h1, h2, h3 {
 	border-left-color: var(--accent-dark);
 }
 
+.juz-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 8px;
+}
+.juz-grid a {
+	text-align: center;
+	font-size: 0.95em;
+}
+@media (min-width: 500px) {
+	.juz-grid { grid-template-columns: repeat(5, 1fr); }
+}
+@media (min-width: 800px) {
+	.juz-grid { grid-template-columns: repeat(6, 1fr); }
+}
+
 /* ---------------- Accordion (Writings) ---------------- */
 
 .accordion {
@@ -505,6 +521,13 @@ h1, h2, h3 {
 .pub-title {
 	flex: 1 1 auto;
 }
+.pub-date {
+	display: inline-block;
+	min-width: 5.5em;
+	color: #999;
+	font-size: 0.85em;
+	margin-right: 8px;
+}
 .pub-item a {
 	flex-shrink: 0;
 	display: inline-flex;
@@ -539,6 +562,103 @@ h1, h2, h3 {
 	padding-left: 4px;
 }
 .chain-list li.emphasis {
+	font-weight: bold;
+}
+
+/* ---------------- Salath time cards ---------------- */
+
+.city-grid {
+	margin: 12px 15px;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 12px;
+}
+@media (min-width: 620px) {
+	.city-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+	.city-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.city-card {
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	background: var(--panel);
+	padding: 10px 14px 14px;
+}
+.city-card h3 {
+	margin: 0 0 8px;
+	font-size: 1em;
+	text-transform: none;
+	border-bottom: 1px solid var(--border);
+	padding-bottom: 6px;
+}
+.city-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.9em;
+}
+.city-table td {
+	padding: 3px 0;
+	border-bottom: 1px solid #eee;
+}
+.city-table td:last-child {
+	text-align: right;
+	font-weight: bold;
+	color: var(--accent-dark);
+}
+
+.table-scroll {
+	overflow-x: auto;
+	margin: 12px 15px;
+	-webkit-overflow-scrolling: touch;
+}
+.monthly-controls {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	margin: 12px 15px;
+}
+.monthly-controls select,
+.monthly-controls button {
+	font: inherit;
+	padding: 6px 10px;
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	background: #fff;
+}
+.month-nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	margin: 10px 15px;
+	font-weight: bold;
+}
+.month-nav a {
+	text-decoration: none;
+	font-size: 1.2em;
+	padding: 2px 10px;
+	border: 1px solid var(--border);
+	border-radius: 4px;
+}
+#timetable {
+	border-collapse: collapse;
+	width: 100%;
+	min-width: 480px;
+	font-size: 0.9em;
+}
+#timetable td, #timetable th {
+	border: 1px solid var(--border);
+	padding: 5px 8px;
+	text-align: center;
+}
+#timetable .head-row {
+	background: #F3F3F3;
+	font-weight: bold;
+}
+#timetable .today-row {
+	background: #FFF3D6;
 	font-weight: bold;
 }
 
