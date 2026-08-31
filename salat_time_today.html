@@ -9,20 +9,20 @@
 <link rel="stylesheet" href="style.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+Tamil:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+Tamil:wght@400;700&display=swap" rel="stylesheet" />
 <script type="text/javascript" src="js/PrayTimes.js"></script>
 <script type="text/javascript" src="js/dateFormat.js"></script>
 <style>
-	#timetable { border-width: 1px; border-style: outset; border-collapse: collapse; border-color: gray; width: 9em; margin: 0 auto; }
-	#timetable td, #timetable th, .timetable td { border-width: 1px; border-spacing: 1px; padding: 2px 4px; border-style: inset; border-color: #ccc; }
-	#timetable th { color: #000; text-align: center; font-weight: bold; background-color: #f8f7f4; }
-	.timetable { border-width: 1px; border-style: outset; border-collapse: collapse; border-color: gray; margin: 10px auto; }
-	.head-row { color: #000; background-color: #eef; }
-	.today-row { background-color: #ffec99; color: #000; }
-	.caption { color: #d95722; text-align: center; width: 10em; font: bold 16px Arial, sans-serif; }
-	.arrow { font-weight: bold; text-decoration: none; color: #3d3d3d; }
+	#timetable { border-width: 1px; border-style: solid; border-collapse: collapse; border-color: #E7E4DA; width: 9em; margin: 0 auto; border-radius: 8px; overflow: hidden; }
+	#timetable td, #timetable th, .timetable td { border-width: 0 0 1px 0; border-spacing: 1px; padding: 5px 8px; border-style: solid; border-color: #E7E4DA; }
+	#timetable th { color: #114A3A; text-align: center; font-weight: 700; background-color: #FAF9F4; }
+	.timetable { border-width: 1px; border-style: solid; border-collapse: collapse; border-color: #E7E4DA; margin: 10px auto; border-radius: 8px; overflow: hidden; }
+	.head-row { color: #114A3A; background-color: #FAF9F4; }
+	.today-row { background-color: #D9B65B; color: #1B1F1C; }
+	.caption { color: #8C6E20; text-align: center; width: 10em; font: 800 16px 'Manrope', Arial, sans-serif; }
+	.arrow { font-weight: bold; text-decoration: none; color: #145C40; }
 	.arrow:hover { text-decoration: underline; }
-	.command { font-weight: bold; text-decoration: none; color: #aaa; }
+	.command { font-weight: bold; text-decoration: none; color: #8C6E20; }
 	.command:hover { text-decoration: underline; }
 </style>
 </head>
@@ -36,8 +36,7 @@
 		<img src="images/bsmllh.gif" alt="Bismillah ir-Rahman ir-Rahim" class="bismillah-img" width="220" height="59" />
 		<a href="index.html" class="logo-ur" lang="ur" dir="rtl">&#1583;&#1593;&#1608;&#1578;&#1616; <span class="accent">&#1729;&#1583;&#1575;&#1740;&#1578;</span></a>
 	</div>
-	<p id="slogan">An invitation towards hidayah (guidance)&hellip;</p>
-	<p id="byline">Official website of Dawat-e-Hidayat, under the guidance of <strong>Hazrat Moulana Mufti Shakeel Ahmed Sahib (DB)</strong></p>
+	<p id="byline">An invitation towards hidayah (guidance) &mdash; under the guidance of <strong>Hazrat Moulana Mufti Shakeel Ahmed Sahib (DB)</strong></p>
 </header>
 
 <nav id="menu" aria-label="Primary">
@@ -74,10 +73,17 @@
 	</ul>
 </nav>
 
+<div class="page-hero">
+	<div class="page-hero-inner">
+		<p class="page-hero-crumb">Downloads <span>/</span> Today&rsquo;s Salah Times</p>
+		<h1>Today&rsquo;s Salah Times</h1>
+	</div>
+</div>
+
 <div id="content-wrap">
 	<main id="main">
 
-		<h1>Salah Times (Auqat-us-Salah) &mdash; For Today</h1>
+		<h2>Salah Times (Auqat-us-Salah) &mdash; For Today</h2>
 
 		<p class="post-footer align-right"><button type="button" onclick="window.print()">Print this page</button></p>
 
@@ -141,27 +147,31 @@
 		</p>
 
 	</main>
+</div>
 
-	<aside id="rightbar">
-
-		<h1>News &amp; Events</h1>
-		<p class="post-footer">
-			<strong>Monthly Majlis:</strong><br />
-			Last Monday of every month at <strong>DAR-E-IMAAN, Opposite Deen Leathers, Quayide Millath Nagar, Kathiyavadi, Melvisharam, Vellore District, Tamil Nadu</strong>, from Asar salah.
-		</p>
-
-		<div class="youtube-box card">
-			<h3>Our YouTube Channel</h3>
-			<a class="youtube-link youtube-icon-link" href="https://www.youtube.com/@dawatehidayat" target="_blank" rel="noopener" aria-label="Visit Dawat-e-Hidayat YouTube Channel">
+<section class="info-section">
+	<div class="info-inner">
+		<div class="info-card">
+			<span class="info-card-icon" aria-hidden="true">&#128197;</span>
+			<div>
+				<h3>Monthly Majlis</h3>
+				<p>Last Monday of every month at <strong>DAR-E-IMAAN, Opposite Deen Leathers, Quayide Millath Nagar, Kathiyavadi, Melvisharam, Vellore District, Tamil Nadu</strong>, from Asar salah.</p>
+			</div>
+		</div>
+		<div class="info-card">
+			<span class="info-card-icon" aria-hidden="true">
 				<svg class="yt-icon" viewBox="0 0 24 24" aria-hidden="true">
 					<path d="M23.498 6.186a2.999 2.999 0 0 0-2.112-2.122C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.386.564A2.999 2.999 0 0 0 .502 6.186 31.02 31.02 0 0 0 0 12a31.02 31.02 0 0 0 .502 5.814 2.999 2.999 0 0 0 2.112 2.122C4.5 20.5 12 20.5 12 20.5s7.5 0 9.386-.564a2.999 2.999 0 0 0 2.112-2.122A31.02 31.02 0 0 0 24 12a31.02 31.02 0 0 0-.502-5.814ZM9.75 15.5v-7l6 3.5-6 3.5Z" />
 				</svg>
-				<span>Visit Channel</span>
-			</a>
+			</span>
+			<div>
+				<h3>Our YouTube Channel</h3>
+				<p>Lectures, talks, and updates from Dawat-e-Hidayat.</p>
+				<a class="youtube-link" href="https://www.youtube.com/@dawatehidayat" target="_blank" rel="noopener" aria-label="Visit Dawat-e-Hidayat YouTube Channel">Visit Channel &rarr;</a>
+			</div>
 		</div>
-
-	</aside>
-</div>
+	</div>
+</section>
 
 <footer id="footer">
 	<p>&copy; 2026 <strong>Dawat-e-Hidayat.org</strong></p>
