@@ -513,6 +513,21 @@ h1, h2, h3 {
 	color: var(--ink);
 	font-weight: 600;
 }
+.contact-card p + p {
+	margin-top: 8px;
+}
+.contact-card p.contact-desc {
+	font-weight: 400;
+	font-size: 0.85em;
+	color: var(--ink-soft);
+}
+.contact-card a {
+	color: var(--emerald-700);
+	text-decoration: none;
+}
+.contact-card a:hover {
+	text-decoration: underline;
+}
 @media (min-width: 640px) {
 	.contact-cards { grid-template-columns: 1fr 1fr; }
 }
