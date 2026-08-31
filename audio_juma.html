@@ -211,7 +211,7 @@
 </section>
 
 <footer id="footer">
-	<p>&copy; 2026 <strong>Dawat-e-Hidayat.org</strong></p>
+	<p>&copy; <span id="footer-year">2026</span> <strong>dawatehidayat.org</strong></p>
 </footer>
 
 <script>
@@ -221,6 +221,8 @@
 		var isOpen = menuList.classList.toggle('open');
 		toggle.setAttribute('aria-expanded', isOpen);
 	});
+
+	document.getElementById('footer-year').textContent = new Date().getFullYear();
 </script>
 
 </body>
