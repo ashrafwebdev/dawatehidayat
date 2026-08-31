@@ -134,10 +134,6 @@ h1, h2, h3 {
 .logo-ur:hover {
 	color: #777;
 }
-.logo-en .bullet {
-	color: var(--accent-gold);
-	margin: 0 2px;
-}
 .logo-en .accent,
 .logo-ur .accent {
 	color: var(--accent);
