@@ -123,31 +123,30 @@ h1, h2, h3 {
 	gap: 14px;
 }
 
-.logo-en {
+.logo-en,
+.logo-ur {
 	font: bold 1.4em 'Trebuchet MS', Arial, sans-serif;
 	color: #999;
 	text-decoration: none;
 	white-space: nowrap;
 }
-.logo-en:hover {
+.logo-en:hover,
+.logo-ur:hover {
 	color: #777;
 }
 .logo-en .bullet {
 	color: var(--accent-gold);
 	margin: 0 2px;
 }
-.logo-en .accent {
+.logo-en .accent,
+.logo-ur .accent {
 	color: var(--accent);
 }
 
-.logo-link {
-	display: inline-block;
-	line-height: 0;
-}
-
-.logo-img {
-	width: 190px;
-	max-width: 45vw;
+.logo-ur {
+	font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
+	font-size: 1.7em;
+	line-height: 1.9;
 }
 
 .bismillah-img {
@@ -702,9 +701,9 @@ table.playlist td img {
 
 /* Wide screens: cap the logo growth */
 @media (min-width: 800px) {
-	.logo-img { width: 220px; max-width: 18vw; }
 	.bismillah-img { width: 150px; max-width: 14vw; }
 	.logo-en { font-size: 1.6em; }
+	.logo-ur { font-size: 2em; }
 }
 
 /* Tablets and up: true left / centre / right header layout,
@@ -717,5 +716,5 @@ table.playlist td img {
 	}
 	.logo-en { justify-self: start; }
 	.bismillah-img { justify-self: center; }
-	.logo-link { justify-self: end; }
+	.logo-ur { justify-self: end; }
 }
