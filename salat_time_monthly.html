@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dawat-e-Hidayat &mdash; Monthly Salah Times</title>
+<meta name="description" content="Dawat-e-Hidayat - An invitation towards hidayah (guidance). Tasawwuf, the traditional Islamic science of self-improvement and spirituality, under the guidance of Hazrat Moulana Mufti Shakeel Ahmed Sahib (DB)." />
+<meta name="keywords" content="Dawat-e-Hidayat, dawatehidayat, Tasawwuf, spirituality, sufi, Naqshbandi, Mujaddidi, Mufti Shakeel Ahmed, Zulfiqar Ahmad Naqshbandi, tariqah, deoband" />
+<link rel="stylesheet" href="style.css" />
+<script type="text/javascript" src="js/PrayTimes.js"></script>
+<script type="text/javascript" src="js/dateFormat.js"></script>
+<style>
+	#timetable { border-width: 1px; border-style: outset; border-collapse: collapse; border-color: gray; width: 9em; margin: 0 auto; }
+	#timetable td, #timetable th, .timetable td { border-width: 1px; border-spacing: 1px; padding: 2px 4px; border-style: inset; border-color: #ccc; }
+	#timetable th { color: #000; text-align: center; font-weight: bold; background-color: #f8f7f4; }
+	.timetable { border-width: 1px; border-style: outset; border-collapse: collapse; border-color: gray; margin: 10px auto; }
+	.head-row { color: #000; background-color: #eef; }
+	.today-row { background-color: #ffec99; color: #000; }
+	.caption { color: #d95722; text-align: center; width: 10em; font: bold 16px Arial, sans-serif; }
+	.arrow { font-weight: bold; text-decoration: none; color: #3d3d3d; }
+	.arrow:hover { text-decoration: underline; }
+	.command { font-weight: bold; text-decoration: none; color: #aaa; }
+	.command:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header id="header">
+	<div class="header-inner">
+		<a href="index.html" class="logo-link" aria-label="Dawat-e-Hidayat home">
+			<img src="images/deh_title.png" alt="Dawat-e-Hidayat" class="logo-img" width="646" height="131" />
+		</a>
+		<img src="images/bsmllh.gif" alt="Bismillah ir-Rahman ir-Rahim" class="bismillah-img" width="220" height="59" />
+	</div>
+	<p id="slogan">An invitation towards hidayah (guidance)&hellip;</p>
+	<p id="byline">Official website of Dawat-e-Hidayat, under the guidance of <strong>Hazrat Moulana Mufti Shakeel Ahmed Sahib (DB)</strong></p>
+</header>
+
+<nav id="menu" aria-label="Primary">
+	<div class="menu-bar">
+		<span class="menu-title">Menu</span>
+		<button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-list">
+			<span class="sr-only">Toggle menu</span>
+			<span class="hamburger"></span>
+		</button>
+	</div>
+	<ul id="menu-list">
+		<li><a href="index.html">Home</a></li>
+		<li class="has-dropdown">
+			<a href="audio.html">Audio</a>
+			<ul class="dropdown-content">
+				<li><a href="audio_majlis.html">Monthly &amp; Weekly Majlis</a></li>
+				<li><a href="audio_general.html">General Talks</a></li>
+				<li><a href="audio_ramazan.html">Ramazan Lectures</a></li>
+				<li><a href="audio_juma.html">Juma Bayaan</a></li>
+			</ul>
+		</li>
+		<li><a href="writings.html">Writings</a></li>
+		<li><a href="silsilah.html">Silsilah</a></li>
+		<li class="has-dropdown current">
+			<a href="downloads.html">Downloads</a>
+			<ul class="dropdown-content">
+				<li><a href="16line_quran.html">Quran (16 Line)</a></li>
+				<li><a href="13line_quran.html">Quran (13 Line)</a></li>
+				<li><a href="salat_time_today.html">Today&rsquo;s Salah Times</a></li>
+				<li class="current"><a href="salat_time_monthly.html" aria-current="page">Monthly Salah Times</a></li>
+			</ul>
+		</li>
+		<li><a href="contacts.html">Contact Us</a></li>
+	</ul>
+</nav>
+
+<div id="content-wrap">
+	<main id="main">
+
+		<h1>Salah Times (Auqat-us-Salah) &mdash; Monthly</h1>
+
+		<p class="post-footer">
+			<label for="location"><strong>Select Location/City:</strong></label>
+			<select id="location" onchange="update()">
+				<option value="Vellore" selected="selected">Vellore</option>
+				<option value="Vaniyambadi">Vaniyambadi</option>
+				<option value="Ambur">Ambur</option>
+				<option value="Melvisharam">Melvisharam</option>
+				<option value="Chennai">Chennai</option>
+				<option value="Salem">Salem</option>
+			</select>
+			<button type="button" onclick="window.print()">Print this page</button>
+		</p>
+
+		<table align="center" width="100%" border="0">
+			<tr>
+				<td align="right"><a href="javascript:displayMonth(-1)" class="arrow">[&laquo;]</a></td>
+				<td id="table-title" class="caption"></td>
+				<td><a href="javascript:displayMonth(1)" class="arrow">[&raquo;]</a></td>
+			</tr>
+		</table>
+
+		<div class="table-scroll">
+			<table id="timetable" class="timetable">
+				<tbody></tbody>
+			</table>
+		</div>
+
+		<p class="align-center">
+			Click here to change time format to: <a id="time-format" href="javascript:switchFormat(1)" title="Change clock format" class="command"></a>
+		</p>
+
+		<script type="text/javascript">
+			var currentDate = new Date();
+			var timeFormat = 1;
+
+			function displayMonth(offset) {
+				var lat = 12.916517, lng = 79.132499;
+				var timeZone = 5.5, dst = 0, method = 'Karachi';
+				var loc = $('location').value;
+
+				if (loc == 'Vellore') { lat = 12.916517; lng = 79.132499; }
+				else if (loc == 'Vaniyambadi') { lat = 12.695032; lng = 78.621885; }
+				else if (loc == 'Ambur') { lat = 12.790361; lng = 78.716608; }
+				else if (loc == 'Melvisharam') { lat = 12.915116; lng = 79.281759; }
+				else if (loc == 'Chennai') { lat = 13.052414; lng = 80.250825; }
+				else if (loc == 'Salem') { lat = 11.664325; lng = 78.146014; }
+
+				prayTimes.setMethod(method);
+				prayTimes.adjust({asr: 'Hanafi'});
+				currentDate.setMonth(currentDate.getMonth() + 1 * offset);
+				var month = currentDate.getMonth();
+				var year = currentDate.getFullYear();
+				$('table-title').innerHTML = monthFullName(month) + ' ' + year;
+				makeTable(year, month, lat, lng, timeZone, dst);
+			}
+
+			function makeTable(year, month, lat, lng, timeZone, dst) {
+				var items = {day: 'Day', fajr: 'Fajr', sunrise: 'Sunrise', dhuhr: 'Dhuhr', asr: 'Asr', maghrib: 'Maghrib', isha: 'Isha'};
+				var tbody = document.createElement('tbody');
+				tbody.appendChild(makeTableRow(items, items, 'head-row'));
+
+				var date = new Date(year, month, 1);
+				var endDate = new Date(year, month + 1, 1);
+				var format = timeFormat ? '12hNS' : '24h';
+
+				while (date < endDate) {
+					var times = prayTimes.getTimes(date, [lat, lng], timeZone, dst, format);
+					times.day = date.getDate();
+					var today = new Date();
+					var isToday = (date.getMonth() == today.getMonth()) && (date.getDate() == today.getDate()) && (date.getFullYear() == today.getFullYear());
+					tbody.appendChild(makeTableRow(times, items, isToday ? 'today-row' : ''));
+					date.setDate(date.getDate() + 1);
+				}
+				removeAllChild($('timetable'));
+				$('timetable').appendChild(tbody);
+			}
+
+			function makeTableRow(data, items, klass) {
+				var row = document.createElement('tr');
+				for (var i in items) {
+					var cell = document.createElement('td');
+					cell.innerHTML = data[i];
+					cell.style.width = i == 'day' ? '2.5em' : '3.7em';
+					cell.align = 'center';
+					row.appendChild(cell);
+				}
+				row.className = klass;
+				return row;
+			}
+
+			function removeAllChild(node) {
+				if (!node) return;
+				while (node.firstChild) node.removeChild(node.firstChild);
+			}
+
+			function switchFormat(offset) {
+				var formats = ['12-hour', '24-hour'];
+				timeFormat = (timeFormat + offset) % 2;
+				$('time-format').innerHTML = formats[timeFormat];
+				update();
+			}
+
+			function update() { displayMonth(0); }
+
+			function monthFullName(month) {
+				var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+				return monthName[month];
+			}
+
+			function $(id) { return document.getElementById(id); }
+
+			switchFormat(0);
+		</script>
+
+	</main>
+
+	<aside id="rightbar">
+
+		<h1>News &amp; Events</h1>
+		<p class="post-footer">
+			<strong>Monthly Majlis:</strong><br />
+			Last Monday of every month at <strong>DAR-E-IMAAN, Opposite Deen Leathers, Quayide Millath Nagar, Kathiyavadi, Melvisharam, Vellore District, Tamil Nadu</strong>, from Asar salah.
+		</p>
+
+		<div class="youtube-box card">
+			<h3>Our YouTube Channel</h3>
+			<a class="youtube-link youtube-icon-link" href="https://www.youtube.com/@dawatehidayat" target="_blank" rel="noopener" aria-label="Visit Dawat-e-Hidayat YouTube Channel">
+				<svg class="yt-icon" viewBox="0 0 24 24" aria-hidden="true">
+					<path d="M23.498 6.186a2.999 2.999 0 0 0-2.112-2.122C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.386.564A2.999 2.999 0 0 0 .502 6.186 31.02 31.02 0 0 0 0 12a31.02 31.02 0 0 0 .502 5.814 2.999 2.999 0 0 0 2.112 2.122C4.5 20.5 12 20.5 12 20.5s7.5 0 9.386-.564a2.999 2.999 0 0 0 2.112-2.122A31.02 31.02 0 0 0 24 12a31.02 31.02 0 0 0-.502-5.814ZM9.75 15.5v-7l6 3.5-6 3.5Z" />
+				</svg>
+				<span>Visit Channel</span>
+			</a>
+		</div>
+
+	</aside>
+</div>
+
+<footer id="footer">
+	<p>&copy; 2026 <strong>Dawat-e-Hidayat.org</strong></p>
+</footer>
+
+<script>
+	var toggle = document.getElementById('menu-toggle');
+	var menuList = document.getElementById('menu-list');
+	toggle.addEventListener('click', function () {
+		var isOpen = menuList.classList.toggle('open');
+		toggle.setAttribute('aria-expanded', isOpen);
+	});
+</script>
+
+</body>
+</html>

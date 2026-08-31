@@ -234,6 +234,63 @@ h1, h2, h3 {
 	border-bottom-color: var(--accent-gold);
 }
 
+/* ---------------- Nav dropdown (Audio / Downloads submenus) ---------------- */
+
+#menu-list li.has-dropdown {
+	position: relative;
+}
+
+.dropdown-content {
+	list-style: none;
+}
+
+.dropdown-content a {
+	text-transform: none;
+	font-weight: normal;
+}
+
+@media (min-width: 641px) {
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		min-width: 230px;
+		background: #fff;
+		box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+		z-index: 20;
+		text-align: left;
+		border: 1px solid var(--border);
+	}
+	#menu-list li.has-dropdown:hover .dropdown-content,
+	#menu-list li.has-dropdown:focus-within .dropdown-content {
+		display: block;
+	}
+	.dropdown-content li + li a {
+		border-top: 1px solid var(--border);
+	}
+	.dropdown-content a {
+		padding: 10px 14px;
+		font-size: 0.8em;
+	}
+	.dropdown-content a:hover {
+		background: var(--panel);
+	}
+}
+
+@media (max-width: 640px) {
+	.dropdown-content {
+		display: flex;
+		flex-direction: column;
+	}
+	.dropdown-content a {
+		padding: 8px 12px 8px 30px;
+		font-size: 0.85em;
+		border-bottom: 1px solid var(--border);
+		border-left: 4px solid transparent;
+	}
+}
+
 /* ---------------- Content layout ---------------- */
 
 #content-wrap {
@@ -267,6 +324,46 @@ h1, h2, h3 {
 	border: 1px solid var(--border);
 }
 .align-right { text-align: right; }
+.align-center { text-align: center; }
+
+/* Silsilah chain */
+.silsilah-list {
+	list-style: none;
+	margin: 12px 15px;
+}
+.silsilah-list li {
+	padding: 6px 0;
+	border-bottom: 1px dotted var(--border);
+}
+.silsilah-list li:last-child { border-bottom: 0; }
+
+/* Contact cards */
+.contact-cards {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 12px;
+	margin: 16px 15px;
+}
+.contact-card {
+	padding: 14px;
+	border: 1px solid var(--border);
+	border-radius: 6px;
+	background: var(--panel);
+	text-align: center;
+}
+.contact-card h3 {
+	font-size: 0.95em;
+	text-transform: uppercase;
+	margin-bottom: 8px;
+}
+.contact-card p {
+	margin: 0;
+	color: var(--accent-dark);
+	font-weight: bold;
+}
+@media (min-width: 640px) {
+	.contact-cards { grid-template-columns: 1fr 1fr; }
+}
 
 /* PDF language grid — replaces the old fixed <table> */
 .pdf-grid {
@@ -297,6 +394,165 @@ h1, h2, h3 {
 	width: 22px;
 	height: auto;
 	flex-shrink: 0;
+}
+
+/* Link cards — landing pages that point at sub-pages (Audio, Downloads) */
+.link-grid {
+	list-style: none;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 10px;
+	margin: 12px 15px;
+}
+.link-card a {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 14px;
+	border: 1px solid var(--border);
+	border-radius: 6px;
+	text-decoration: none;
+	color: var(--heading);
+	font-weight: bold;
+	background: var(--panel);
+}
+.link-card a:hover {
+	border-color: var(--accent);
+	background: #fff6ea;
+}
+.link-card .arrow {
+	color: var(--accent);
+	font-weight: normal;
+}
+
+/* Collapsible publication sections (writings.html) */
+.pub-section {
+	margin: 10px 15px 18px;
+	border: 1px solid var(--border);
+	border-radius: 6px;
+	overflow: hidden;
+}
+.pub-section summary {
+	cursor: pointer;
+	list-style: none;
+	padding: 10px 14px;
+	background: var(--panel);
+	font: bold 1.05em 'Trebuchet MS', Tahoma, sans-serif;
+	color: var(--heading);
+	text-transform: uppercase;
+	font-size: 0.95em;
+}
+.pub-section summary::-webkit-details-marker { display: none; }
+.pub-section summary::before {
+	content: "▸";
+	display: inline-block;
+	margin-right: 8px;
+	color: var(--accent);
+	transition: transform 0.15s ease;
+}
+.pub-section[open] summary::before {
+	transform: rotate(90deg);
+}
+.pub-section summary:hover { color: #000; }
+
+.pub-grid {
+	list-style: none;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 10px;
+	padding: 12px 14px;
+}
+.pub-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 10px;
+	border: 1px solid var(--border);
+	border-radius: 6px;
+}
+.pub-item .pub-title {
+	flex: 1 1 auto;
+	font-size: 0.9em;
+}
+.pub-item .pub-title img {
+	max-height: 44px;
+	width: auto;
+}
+.pub-item a.pub-dl {
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 6px;
+	border: 1px solid var(--border);
+	border-radius: 6px;
+	background: var(--panel);
+}
+.pub-item a.pub-dl:hover {
+	border-color: var(--accent);
+	background: #fff6ea;
+}
+.pub-item a.pub-dl img {
+	width: 26px;
+	height: auto;
+}
+
+/* Salah times grid (salat_time_today.html) */
+.salat-city-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 14px;
+	margin: 14px 15px;
+}
+.salat-city {
+	text-align: center;
+}
+.salat-city h3 {
+	font-size: 0.9em;
+	margin-bottom: 6px;
+}
+@media (min-width: 640px) {
+	.salat-city-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Audio playlist tables (audio_*.html) — keep the original table markup,
+   just make it scrollable and legible on small screens */
+.table-scroll {
+	overflow-x: auto;
+	margin: 12px 15px;
+	-webkit-overflow-scrolling: touch;
+}
+table.playlist {
+	border-collapse: collapse;
+	width: 100%;
+	min-width: 480px;
+	border: 1px solid #ccc;
+	font-size: 0.85em;
+}
+table.playlist td {
+	padding: 6px 10px;
+	border-left: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	white-space: nowrap;
+}
+table.playlist tr.selected td {
+	background-color: var(--accent);
+	color: #fff;
+	font-weight: bold;
+}
+table.playlist tr.subselected td {
+	background-color: #FFF4E2;
+	color: #332209;
+	font-weight: bold;
+}
+table.playlist td img {
+	vertical-align: middle;
+}
+.playlist-heading {
+	margin: 20px 15px 4px;
+	color: var(--accent-dark);
 }
 
 .mixlr-embed {
