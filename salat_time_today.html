@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dawat-e-Hidayat &mdash; Today&rsquo;s Salah Times</title>
+<meta name="description" content="Dawat-e-Hidayat - An invitation towards hidayah (guidance). Tasawwuf, the traditional Islamic science of self-improvement and spirituality, under the guidance of Hazrat Moulana Mufti Shakeel Ahmed Sahib (DB)." />
+<meta name="keywords" content="Dawat-e-Hidayat, dawatehidayat, Tasawwuf, spirituality, sufi, Naqshbandi, Mujaddidi, Mufti Shakeel Ahmed, Zulfiqar Ahmad Naqshbandi, tariqah, deoband" />
+<link rel="stylesheet" href="style.css" />
+<script type="text/javascript" src="js/PrayTimes.js"></script>
+<script type="text/javascript" src="js/dateFormat.js"></script>
+<style>
+	#timetable { border-width: 1px; border-style: outset; border-collapse: collapse; border-color: gray; width: 9em; margin: 0 auto; }
+	#timetable td, #timetable th, .timetable td { border-width: 1px; border-spacing: 1px; padding: 2px 4px; border-style: inset; border-color: #ccc; }
+	#timetable th { color: #000; text-align: center; font-weight: bold; background-color: #f8f7f4; }
+	.timetable { border-width: 1px; border-style: outset; border-collapse: collapse; border-color: gray; margin: 10px auto; }
+	.head-row { color: #000; background-color: #eef; }
+	.today-row { background-color: #ffec99; color: #000; }
+	.caption { color: #d95722; text-align: center; width: 10em; font: bold 16px Arial, sans-serif; }
+	.arrow { font-weight: bold; text-decoration: none; color: #3d3d3d; }
+	.arrow:hover { text-decoration: underline; }
+	.command { font-weight: bold; text-decoration: none; color: #aaa; }
+	.command:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header id="header">
+	<div class="header-inner">
+		<a href="index.html" class="logo-link" aria-label="Dawat-e-Hidayat home">
+			<img src="images/deh_title.png" alt="Dawat-e-Hidayat" class="logo-img" width="646" height="131" />
+		</a>
+		<img src="images/bsmllh.gif" alt="Bismillah ir-Rahman ir-Rahim" class="bismillah-img" width="220" height="59" />
+	</div>
+	<p id="slogan">An invitation towards hidayah (guidance)&hellip;</p>
+	<p id="byline">Official website of Dawat-e-Hidayat, under the guidance of <strong>Hazrat Moulana Mufti Shakeel Ahmed Sahib (DB)</strong></p>
+</header>
+
+<nav id="menu" aria-label="Primary">
+	<div class="menu-bar">
+		<span class="menu-title">Menu</span>
+		<button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-list">
+			<span class="sr-only">Toggle menu</span>
+			<span class="hamburger"></span>
+		</button>
+	</div>
+	<ul id="menu-list">
+		<li><a href="index.html">Home</a></li>
+		<li class="has-dropdown">
+			<a href="audio.html">Audio</a>
+			<ul class="dropdown-content">
+				<li><a href="audio_majlis.html">Monthly &amp; Weekly Majlis</a></li>
+				<li><a href="audio_general.html">General Talks</a></li>
+				<li><a href="audio_ramazan.html">Ramazan Lectures</a></li>
+				<li><a href="audio_juma.html">Juma Bayaan</a></li>
+			</ul>
+		</li>
+		<li><a href="writings.html">Writings</a></li>
+		<li><a href="silsilah.html">Silsilah</a></li>
+		<li class="has-dropdown current">
+			<a href="downloads.html">Downloads</a>
+			<ul class="dropdown-content">
+				<li><a href="16line_quran.html">Quran (16 Line)</a></li>
+				<li><a href="13line_quran.html">Quran (13 Line)</a></li>
+				<li class="current"><a href="salat_time_today.html" aria-current="page">Today&rsquo;s Salah Times</a></li>
+				<li><a href="salat_time_monthly.html">Monthly Salah Times</a></li>
+			</ul>
+		</li>
+		<li><a href="contacts.html">Contact Us</a></li>
+	</ul>
+</nav>
+
+<div id="content-wrap">
+	<main id="main">
+
+		<h1>Salah Times (Auqat-us-Salah) &mdash; For Today</h1>
+
+		<p class="post-footer align-right"><button type="button" onclick="window.print()">Print this page</button></p>
+
+		<div id="printTable">
+			<div class="salat-city-grid">
+				<div class="salat-city">
+					<h3>Vellore, TN</h3>
+					<div id="vellore"></div>
+				</div>
+				<div class="salat-city">
+					<h3>Vaniyambadi, TN</h3>
+					<div id="vaniyambadi"></div>
+				</div>
+				<div class="salat-city">
+					<h3>Ambur, TN</h3>
+					<div id="ambur"></div>
+				</div>
+				<div class="salat-city">
+					<h3>Melvisharam, TN</h3>
+					<div id="melvisharam"></div>
+				</div>
+				<div class="salat-city">
+					<h3>Chennai, TN</h3>
+					<div id="chennai"></div>
+				</div>
+				<div class="salat-city">
+					<h3>Salem, TN</h3>
+					<div id="salem"></div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			prayTimes.setMethod('Karachi');
+			prayTimes.adjust({asr: 'Hanafi'});
+
+			var date = new Date();
+			var list = ['Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+			var locations = {
+				vaniyambadi: [12.695032, 78.621885],
+				vellore: [12.916517, 79.132499],
+				chennai: [13.052414, 80.250825],
+				melvisharam: [12.915116, 79.281759],
+				ambur: [12.790361, 78.716608],
+				salem: [11.664325, 78.146014]
+			};
+
+			for (var id in locations) {
+				var times = prayTimes.getTimes(date, locations[id], 5.5, 0, '12h');
+				var html = '<table id="timetable"><tr><th colspan="2">' + dateFormat(date, "ddd, mmm d, yyyy") + '</th></tr>';
+				for (var i in list) {
+					html += '<tr><td>&nbsp;' + list[i] + '&nbsp;</td><td align="center">&nbsp;' + times[list[i].toLowerCase()] + '&nbsp;</td></tr>';
+				}
+				html += '</table>';
+				document.getElementById(id).innerHTML = html;
+			}
+		</script>
+
+		<p class="post-footer">
+			<strong>Note:</strong> times are calculated using the Karachi (Hanafi Asr) method for each location&rsquo;s coordinates.
+		</p>
+
+	</main>
+
+	<aside id="rightbar">
+
+		<h1>News &amp; Events</h1>
+		<p class="post-footer">
+			<strong>Monthly Majlis:</strong><br />
+			Last Monday of every month at <strong>DAR-E-IMAAN, Opposite Deen Leathers, Quayide Millath Nagar, Kathiyavadi, Melvisharam, Vellore District, Tamil Nadu</strong>, from Asar salah.
+		</p>
+
+		<div class="youtube-box card">
+			<h3>Our YouTube Channel</h3>
+			<a class="youtube-link youtube-icon-link" href="https://www.youtube.com/@dawatehidayat" target="_blank" rel="noopener" aria-label="Visit Dawat-e-Hidayat YouTube Channel">
+				<svg class="yt-icon" viewBox="0 0 24 24" aria-hidden="true">
+					<path d="M23.498 6.186a2.999 2.999 0 0 0-2.112-2.122C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.386.564A2.999 2.999 0 0 0 .502 6.186 31.02 31.02 0 0 0 0 12a31.02 31.02 0 0 0 .502 5.814 2.999 2.999 0 0 0 2.112 2.122C4.5 20.5 12 20.5 12 20.5s7.5 0 9.386-.564a2.999 2.999 0 0 0 2.112-2.122A31.02 31.02 0 0 0 24 12a31.02 31.02 0 0 0-.502-5.814ZM9.75 15.5v-7l6 3.5-6 3.5Z" />
+				</svg>
+				<span>Visit Channel</span>
+			</a>
+		</div>
+
+	</aside>
+</div>
+
+<footer id="footer">
+	<p>&copy; 2026 <strong>Dawat-e-Hidayat.org</strong></p>
+</footer>
+
+<script>
+	var toggle = document.getElementById('menu-toggle');
+	var menuList = document.getElementById('menu-list');
+	toggle.addEventListener('click', function () {
+		var isOpen = menuList.classList.toggle('open');
+		toggle.setAttribute('aria-expanded', isOpen);
+	});
+</script>
+
+</body>
+</html>
