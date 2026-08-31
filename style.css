@@ -120,7 +120,24 @@ h1, h2, h3 {
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
-	gap: 16px;
+	gap: 14px;
+}
+
+.logo-en {
+	font: bold 1.4em 'Trebuchet MS', Arial, sans-serif;
+	color: #999;
+	text-decoration: none;
+	white-space: nowrap;
+}
+.logo-en:hover {
+	color: #777;
+}
+.logo-en .bullet {
+	color: var(--accent-gold);
+	margin: 0 2px;
+}
+.logo-en .accent {
+	color: var(--accent);
 }
 
 .logo-link {
@@ -129,13 +146,13 @@ h1, h2, h3 {
 }
 
 .logo-img {
-	width: 260px;
-	max-width: 60vw;
+	width: 190px;
+	max-width: 45vw;
 }
 
 .bismillah-img {
-	width: 140px;
-	max-width: 40vw;
+	width: 120px;
+	max-width: 35vw;
 }
 
 #slogan {
@@ -685,6 +702,20 @@ table.playlist td img {
 
 /* Wide screens: cap the logo growth */
 @media (min-width: 800px) {
-	.logo-img { width: 320px; max-width: 45%; }
-	.bismillah-img { width: 170px; max-width: 28%; }
+	.logo-img { width: 220px; max-width: 18vw; }
+	.bismillah-img { width: 150px; max-width: 14vw; }
+	.logo-en { font-size: 1.6em; }
+}
+
+/* Tablets and up: true left / centre / right header layout,
+   matching the original site (English wordmark, Bismillah, Urdu title) */
+@media (min-width: 640px) {
+	.header-inner {
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+		align-items: center;
+	}
+	.logo-en { justify-self: start; }
+	.bismillah-img { justify-self: center; }
+	.logo-link { justify-self: end; }
 }
