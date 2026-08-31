@@ -9,20 +9,20 @@
 <link rel="stylesheet" href="style.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+Tamil:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+Tamil:wght@400;700&display=swap" rel="stylesheet" />
 <script type="text/javascript" src="js/PrayTimes.js"></script>
 <script type="text/javascript" src="js/dateFormat.js"></script>
 <style>
-	#timetable { border-width: 1px; border-style: outset; border-collapse: collapse; border-color: gray; width: 9em; margin: 0 auto; }
-	#timetable td, #timetable th, .timetable td { border-width: 1px; border-spacing: 1px; padding: 2px 4px; border-style: inset; border-color: #ccc; }
-	#timetable th { color: #000; text-align: center; font-weight: bold; background-color: #f8f7f4; }
-	.timetable { border-width: 1px; border-style: outset; border-collapse: collapse; border-color: gray; margin: 10px auto; }
-	.head-row { color: #000; background-color: #eef; }
-	.today-row { background-color: #ffec99; color: #000; }
-	.caption { color: #d95722; text-align: center; width: 10em; font: bold 16px Arial, sans-serif; }
-	.arrow { font-weight: bold; text-decoration: none; color: #3d3d3d; }
+	#timetable { border-width: 1px; border-style: solid; border-collapse: collapse; border-color: #E3DAC0; width: 9em; margin: 0 auto; }
+	#timetable td, #timetable th, .timetable td { border-width: 1px; border-spacing: 1px; padding: 4px 6px; border-style: solid; border-color: #E3DAC0; }
+	#timetable th { color: #103F30; text-align: center; font-weight: bold; background-color: #F6F0E1; }
+	.timetable { border-width: 1px; border-style: solid; border-collapse: collapse; border-color: #E3DAC0; margin: 10px auto; }
+	.head-row { color: #103F30; background-color: #F6F0E1; }
+	.today-row { background-color: #E4C465; color: #23281F; }
+	.caption { color: #9C7C1B; text-align: center; width: 10em; font: bold 16px 'Amiri', Georgia, serif; }
+	.arrow { font-weight: bold; text-decoration: none; color: #155B41; }
 	.arrow:hover { text-decoration: underline; }
-	.command { font-weight: bold; text-decoration: none; color: #aaa; }
+	.command { font-weight: bold; text-decoration: none; color: #9C7C1B; }
 	.command:hover { text-decoration: underline; }
 </style>
 </head>
@@ -31,6 +31,7 @@
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <header id="header">
+	<div class="header-pattern" aria-hidden="true"></div>
 	<div class="header-inner">
 		<a href="index.html" class="logo-en">Dawat e <span class="accent">Hidayat</span></a>
 		<img src="images/bsmllh.gif" alt="Bismillah ir-Rahman ir-Rahim" class="bismillah-img" width="220" height="59" />
@@ -74,10 +75,19 @@
 	</ul>
 </nav>
 
+<div class="page-hero">
+	<div class="page-hero-pattern" aria-hidden="true"></div>
+	<div class="page-hero-inner">
+		<p class="page-hero-crumb">Downloads <span>&rsaquo;</span> Today&rsquo;s Salah Times</p>
+		<h1>Today&rsquo;s Salah Times</h1>
+	</div>
+	<div class="page-hero-arch" aria-hidden="true"></div>
+</div>
+
 <div id="content-wrap">
 	<main id="main">
 
-		<h1>Salah Times (Auqat-us-Salah) &mdash; For Today</h1>
+		<h2>Salah Times (Auqat-us-Salah) &mdash; For Today</h2>
 
 		<p class="post-footer align-right"><button type="button" onclick="window.print()">Print this page</button></p>
 
@@ -144,7 +154,7 @@
 
 	<aside id="rightbar">
 
-		<h1>News &amp; Events</h1>
+		<h2>News &amp; Events</h2>
 		<p class="post-footer">
 			<strong>Monthly Majlis:</strong><br />
 			Last Monday of every month at <strong>DAR-E-IMAAN, Opposite Deen Leathers, Quayide Millath Nagar, Kathiyavadi, Melvisharam, Vellore District, Tamil Nadu</strong>, from Asar salah.
@@ -164,6 +174,7 @@
 </div>
 
 <footer id="footer">
+	<div class="footer-pattern" aria-hidden="true"></div>
 	<p>&copy; 2026 <strong>Dawat-e-Hidayat.org</strong></p>
 </footer>
 
