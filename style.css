@@ -638,13 +638,13 @@ h1, h2, h3 {
 .pub-item .pub-title .native-title {
 	display: block;
 }
-.pub-item .pub-title .native-title[lang="ur"] {
+.native-title[lang="ur"] {
 	font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
 	font-size: 1.1em;
 	line-height: 2;
 	color: var(--ink);
 }
-.pub-item .pub-title .native-title[lang="ta"] {
+.native-title[lang="ta"] {
 	font-family: 'Noto Sans Tamil', 'Latha', sans-serif;
 	color: var(--ink);
 }
