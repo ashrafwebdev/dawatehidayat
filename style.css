@@ -480,6 +480,17 @@ h1, h2, h3 {
 	max-height: 44px;
 	width: auto;
 }
+.pub-item .pub-title .native-title {
+	display: block;
+}
+.pub-item .pub-title .native-title[lang="ur"] {
+	font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
+	font-size: 1.1em;
+	line-height: 2;
+}
+.pub-item .pub-title .native-title[lang="ta"] {
+	font-family: 'Noto Sans Tamil', 'Latha', sans-serif;
+}
 .pub-item a.pub-dl {
 	flex-shrink: 0;
 	display: inline-flex;
