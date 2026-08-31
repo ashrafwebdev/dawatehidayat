@@ -822,6 +822,12 @@ table.playlist td img {
 #footer strong {
 	color: var(--gold-light);
 }
+#footer a {
+	text-decoration: none;
+}
+#footer a:hover strong {
+	text-decoration: underline;
+}
 
 /* =======================================================
    Breakpoints
